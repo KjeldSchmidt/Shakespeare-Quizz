@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System.Linq;
 
 public class ActorRenderer : MonoBehaviour {
 
@@ -30,7 +31,10 @@ public class ActorRenderer : MonoBehaviour {
 		initMaps();
 
 		string CharElemDir = Application.dataPath + "/Images/CharacterElements/";
-		string[] CharElemFilePaths = Directory.GetFiles(CharElemDir);
+		string[] CharElemFilePaths = Directory.GetFiles(CharElemDir)
+			.Where( s => s.EndsWith(".png") )
+			.ToArray();
+
 		foreach ( string path in CharElemFilePaths ) {
 			string lowerCasePath = path.ToLower();
 			if ( lowerCasePath.Contains("augenbrauen") ) {
@@ -114,14 +118,17 @@ public class ActorRenderer : MonoBehaviour {
 	}
 
 	private void initRandomCostume() {
-		foreach ( string type in elementTypeMap.Keys ) {
+		string[] assignAtStart = {"Eyebrow", "Shirt", "Body", "Shoes", "Pants", "Hair", "FacialFeatures", "FacialHair"};
+		foreach ( string type in assignAtStart ) {
 			assignRandomOfType(type);
 		}
 	}
 	
 	private void assignRandomOfType(string type) {
 		if ( elementTypeMap[type].Count != 0 ) {
-			typeToRenderer[type].sprite = IMG2Sprite.instance.LoadNewSprite(elementTypeMap[type][0]);
+			List<string> elements = elementTypeMap[type];
+			string elemenToLoad = elements.RandomElement();
+			typeToRenderer[type].sprite = IMG2Sprite.instance.LoadNewSprite(elemenToLoad);
 		}
 	}
 	// Update is called once per frame

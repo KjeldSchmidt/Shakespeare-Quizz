@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using System.Linq;
 
 public class ActorRenderer : MonoBehaviour {
 
@@ -28,14 +27,15 @@ public class ActorRenderer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		if (string.IsNullOrEmpty(BetterStreamingAssets.Root)) {
+            BetterStreamingAssets.Initialize();
+        }
+
 		initMaps();
 
-		string CharElemDir = Application.streamingAssetsPath + "/CharacterElements/";
-		string[] CharElemFilePaths = Directory.GetFiles(CharElemDir)
-			.Where( s => s.EndsWith(".png") )
-			.ToArray();
+		string[] charElemFilePaths = BetterStreamingAssets.GetFiles("/CharacterElements/", "*.png", SearchOption.AllDirectories);
 
-		foreach ( string path in CharElemFilePaths ) {
+		foreach ( string path in charElemFilePaths ) {
 			string lowerCasePath = path.ToLower();
 			if ( lowerCasePath.Contains("augenbrauen") ) {
 				elementTypeMap["Eyebrow"].Add(path);

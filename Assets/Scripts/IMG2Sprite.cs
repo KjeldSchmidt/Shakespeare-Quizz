@@ -31,7 +31,7 @@
          
          Sprite NewSprite = new Sprite();
          Texture2D SpriteTexture = LoadTexture(FilePath);
-         NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height),new Vector2(0,0), PixelsPerUnit);
+         NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0,0), PixelsPerUnit);
      
          return NewSprite;
        }
@@ -44,8 +44,8 @@
          Texture2D Tex2D;
          byte[] FileData;
      
-         if (File.Exists(FilePath)){
-           FileData = File.ReadAllBytes(FilePath);
+         if (BetterStreamingAssets.FileExists(FilePath)){
+           FileData = BetterStreamingAssets.ReadAllBytes(FilePath);
            Tex2D = new Texture2D(2, 2);           // Create new "empty" texture
            if (Tex2D.LoadImage(FileData))           // Load the imagedata into the texture (size is set automatically)
              return Tex2D;                 // If data = readable -> return texture

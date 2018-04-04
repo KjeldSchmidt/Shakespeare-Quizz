@@ -30,7 +30,7 @@ public class ActorRenderer : MonoBehaviour {
 
 		initMaps();
 
-		string CharElemDir = Application.dataPath + "/Images/CharacterElements/";
+		string CharElemDir = Application.streamingAssetsPath + "/CharacterElements/";
 		string[] CharElemFilePaths = Directory.GetFiles(CharElemDir)
 			.Where( s => s.EndsWith(".png") )
 			.ToArray();

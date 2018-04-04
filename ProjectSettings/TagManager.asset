@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrop
+    uniqueID: 4034246983
+    locked: 0
+  - name: Stage
+    uniqueID: 4037001687
+    locked: 0
+  - name: Curtains
+    uniqueID: 1543305047
+    locked: 0

@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619757339124800}
+  - component: {fileID: 114467336360677646}
   m_Layer: 0
   m_Name: Renderer
   m_TagString: Untagged
@@ -467,6 +468,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057595462771966}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114467336360677646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162019670965038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d7fbae1ae93b246af1d2c248b81528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyebrow: {fileID: 212582028397367974}
+  hat: {fileID: 212175331838755298}
+  hair: {fileID: 212584846264610454}
+  facialhair: {fileID: 212407000752354898}
+  face: {fileID: 212602681749817612}
+  overall: {fileID: 212577526339431850}
+  handheld: {fileID: 212500838930558078}
+  shirt: {fileID: 212245604933088540}
+  pants: {fileID: 212627147826865608}
+  shoes: {fileID: 212440101754293700}
+  body: {fileID: 212367977127594730}
+  wings: {fileID: 212177719467086730}
 --- !u!114 &114518074599084580
 MonoBehaviour:
   m_ObjectHideFlags: 1

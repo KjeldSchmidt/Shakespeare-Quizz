@@ -108,7 +108,7 @@ public class ActorRenderer : MonoBehaviour {
 		foreach ( string type in typeToRenderer.Keys ) {
 			typeToCurrentIndex[type] = 0;
 			elementTypeMap.Add(type, new List<string>() );
-			if ( type != "body") elementTypeMap[type].Add(emptyPath);
+			if ( type != "Body") elementTypeMap[type].Add(emptyPath);
 		}
 	}
 

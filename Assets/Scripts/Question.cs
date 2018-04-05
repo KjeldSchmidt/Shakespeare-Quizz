@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Question {
 
-	private String question {get;}
-	private String answer1 {get;}
-	private String answer2 {get;}
-	private String answer3 {get;}
-	private String answer4 {get;}
+	private String question;
+	private String answer1;
+	private String answer2;
+	private String answer3;
+	private String answer4;
 
 	public Question( String question, String answer1, String answer2, String answer3, String answer4, int correctAnswer ) {
 		this.question = question;
@@ -20,7 +20,6 @@ public class Question {
 	}
 
 	public Question( String csvString ) {
-		Debug.Log(csvString);
 		char[] splitters = { ';' };
 		String[] inputs = csvString.Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
 		Debug.Assert( inputs.Length == 5, "Question cvs string is invalid, incorrect number of arguments.");
@@ -33,5 +32,21 @@ public class Question {
 
 	public bool checkAnswer(int answer) {
 		return answer == 1;
+	}
+
+	public string getQuestion() {
+		return this.question;
+	}
+	public string getAnswer1() {
+		return this.answer1;
+	}
+	public string getAnswer2() {
+		return this.answer2;
+	}
+	public string getAnswer3() {
+		return this.answer3;
+	}
+	public string getAnswer4() {
+		return this.answer4;
 	}
 }

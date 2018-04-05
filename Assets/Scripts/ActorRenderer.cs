@@ -7,6 +7,7 @@ public class ActorRenderer : MonoBehaviour {
 
 	private Dictionary<string, List<string>> elementTypeMap = new Dictionary<string, List<string>>();
 	private Dictionary<string, SpriteRenderer> typeToRenderer = new Dictionary<string, SpriteRenderer>();
+	private Dictionary<string, int> typeToCurrentIndex = new Dictionary<string, int>();
 	public SpriteRenderer handheldRenderer;
 	public SpriteRenderer headpieceRenderer;
 	public SpriteRenderer helmetRenderer;
@@ -82,41 +83,8 @@ public class ActorRenderer : MonoBehaviour {
 	}
 
 	private void initMaps() {
-		elementTypeMap.Add("Eyebrow", new List<string>() );
-		elementTypeMap.Add("Shirt", new List<string>() );
-		elementTypeMap.Add("Body", new List<string>() );
-		elementTypeMap.Add("Overall", new List<string>() );
-		elementTypeMap.Add("Shoes", new List<string>() );
-		elementTypeMap.Add("Pants", new List<string>() );
-		elementTypeMap.Add("Hair", new List<string>() );
-		elementTypeMap.Add("Helmet", new List<string>() );
-		elementTypeMap.Add("FacialFeatures", new List<string>() );
-		elementTypeMap.Add("FacialHair", new List<string>() );
-		elementTypeMap.Add("Headpiece", new List<string>() );
-		elementTypeMap.Add("Handheld", new List<string>() );
-		elementTypeMap.Add("Makeup", new List<string>() );
-		elementTypeMap.Add("Neckwear", new List<string>() );
-		elementTypeMap.Add("Wings", new List<string>() );
-		elementTypeMap.Add("Eyelids", new List<string>() );
-
 		string emptyPath = "/Empty/empty.png";
-		if ( BetterStreamingAssets.FileExists(emptyPath) ) {
-			elementTypeMap["Eyebrow"].Add(emptyPath);
-			elementTypeMap["Shirt"].Add(emptyPath);
-			elementTypeMap["Overall"].Add(emptyPath);
-			elementTypeMap["Shoes"].Add(emptyPath);
-			elementTypeMap["Pants"].Add(emptyPath);
-			elementTypeMap["Hair"].Add(emptyPath);
-			elementTypeMap["Helmet"].Add(emptyPath);
-			elementTypeMap["FacialFeatures"].Add(emptyPath);
-			elementTypeMap["FacialHair"].Add(emptyPath);
-			elementTypeMap["Headpiece"].Add(emptyPath);
-			elementTypeMap["Handheld"].Add(emptyPath);
-			elementTypeMap["Makeup"].Add(emptyPath);
-			elementTypeMap["Neckwear"].Add(emptyPath);
-			elementTypeMap["Wings"].Add(emptyPath);
-			elementTypeMap["Eyelids"].Add(emptyPath);
-		} else {
+		if ( !BetterStreamingAssets.FileExists(emptyPath) ) {
 			Debug.Log("Missing empty sprite!");
 		}
 
@@ -136,6 +104,12 @@ public class ActorRenderer : MonoBehaviour {
 		typeToRenderer.Add("Neckwear", neckwearRenderer );
 		typeToRenderer.Add("Wings", wingsRenderer );
 		typeToRenderer.Add("Eyelids", wingsRenderer );
+
+		foreach ( string type in typeToRenderer.Keys ) {
+			typeToCurrentIndex[type] = 0;
+			elementTypeMap.Add(type, new List<string>() );
+			if ( type != "body") elementTypeMap[type].Add(emptyPath);
+		}
 	}
 
 	private void initRandomCostume() {

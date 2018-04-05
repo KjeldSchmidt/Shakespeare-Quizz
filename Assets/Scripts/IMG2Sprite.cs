@@ -31,7 +31,7 @@
          
          Sprite NewSprite = new Sprite();
          Texture2D SpriteTexture = LoadTexture(FilePath);
-         NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0,0), PixelsPerUnit);
+         NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0.5f, 0.5f), PixelsPerUnit);
      
          return NewSprite;
        }

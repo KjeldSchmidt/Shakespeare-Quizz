@@ -27,6 +27,7 @@ public class QuestionBoard : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		moveUp();
+		if ( isDown ) moveUp();
+		else moveDown();
 	}
 }

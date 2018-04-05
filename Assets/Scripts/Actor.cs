@@ -4,18 +4,9 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public int answerIndex;
 
 	void OnMouseDown() {
-		Debug.Log("Clicked object");
-		Destroy(gameObject);
+		Debug.Log("Clicked Actor");
 	}
 }

@@ -99,6 +99,27 @@ public class ActorRenderer : MonoBehaviour {
 		elementTypeMap.Add("Wings", new List<string>() );
 		elementTypeMap.Add("Eyelids", new List<string>() );
 
+		string emptyPath = "/Empty/empty.png";
+		if ( BetterStreamingAssets.FileExists(emptyPath) ) {
+			elementTypeMap["Eyebrow"].Add(emptyPath);
+			elementTypeMap["Shirt"].Add(emptyPath);
+			elementTypeMap["Overall"].Add(emptyPath);
+			elementTypeMap["Shoes"].Add(emptyPath);
+			elementTypeMap["Pants"].Add(emptyPath);
+			elementTypeMap["Hair"].Add(emptyPath);
+			elementTypeMap["Helmet"].Add(emptyPath);
+			elementTypeMap["FacialFeatures"].Add(emptyPath);
+			elementTypeMap["FacialHair"].Add(emptyPath);
+			elementTypeMap["Headpiece"].Add(emptyPath);
+			elementTypeMap["Handheld"].Add(emptyPath);
+			elementTypeMap["Makeup"].Add(emptyPath);
+			elementTypeMap["Neckwear"].Add(emptyPath);
+			elementTypeMap["Wings"].Add(emptyPath);
+			elementTypeMap["Eyelids"].Add(emptyPath);
+		} else {
+			Debug.Log("Missing empty sprite!");
+		}
+
 		typeToRenderer.Add("Eyebrow", eyebrowRenderer );
 		typeToRenderer.Add("Shirt", shirtRenderer );
 		typeToRenderer.Add("Body", bodyRenderer );
